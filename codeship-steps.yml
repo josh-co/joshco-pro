@@ -1,0 +1,13 @@
+- type: parallel
+  steps:
+  - name: test
+    service: joshco-pro-app
+    command: rails test
+- name: deploy
+  tag: master
+  service: codeship-heroku-deployment
+  command: codeship_heroku deploy /deploy joshco-pro
+- name: migrate
+  tag: master
+  service: codeship-heroku-deployment
+  command: heroku run --app joshco-pro -- bundle exec rake db:migrate
