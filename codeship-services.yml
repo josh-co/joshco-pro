@@ -1,4 +1,4 @@
-joshco-pro:
+joshco-pro-app:
   build: ./
   # depends_on:
   #   - postgres
